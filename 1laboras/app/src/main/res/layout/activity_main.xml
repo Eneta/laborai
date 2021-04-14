@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -24,11 +25,27 @@
         android:layout_marginTop="19dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="168dp"
-        android:text="PASPAUSTI"
+        android:onClick="click_mainbutton"
+        android:text="Keisti tekstą"
         app:layout_constraintBottom_toTopOf="@+id/textfield"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="click_mainbutton"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/colorbutton"
+        android:layout_width="397dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="168dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="19dp"
+        android:onClick="click_colorbutton"
+        android:text="Keisti spalvą"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textfield" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
