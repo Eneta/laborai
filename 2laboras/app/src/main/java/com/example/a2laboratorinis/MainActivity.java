@@ -3,15 +3,18 @@ package com.example.a2laboratorinis;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import static com.example.textcountersample.utils.ElementsCalculator.getCharsCount;
+import static com.example.a2laboratorinis.SymbolsWordsCounter.getSymbolsCount;
+import static com.example.a2laboratorinis.SymbolsWordsCounter.getWordsCount;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,16 +38,18 @@ public class MainActivity extends AppCompatActivity {
         EditText fillIn = findViewById(R.id.editTxt);
         TextView showResult = findViewById(R.id.finalTxt);
         String userInputText = fillIn.getText().toString();
+        int count;
 
         String selection = this.selectionVariant.getSelectedItem().toString();
-        if(selection.equalsIgnoreCase("Simboliai")) {
-            int count = getCharsCount(userInputText);
+
+        if (TextUtils.isEmpty(userInputText)) {
+            Toast.makeText(getApplicationContext(), "Trūksta teksto", Toast.LENGTH_SHORT).show();
+        } else if(selection.equalsIgnoreCase("Simboliai")) {
+            count = getSymbolsCount(userInputText);
+            showResult.setText(String.valueOf(count));
+        } else if(selection.equalsIgnoreCase("Žodžiai")) {
+            count = getWordsCount(userInputText);
             showResult.setText(String.valueOf(count));
         }
-
-        String selection = this.selectionVariant.getSelectedItem().toString();
-        if(selection.equalsIgnoreCase("Žodžiai")) {
-            int count = getCharsCount(userInputText);
-            showResult.setText(String.valueOf(count));
     }
 }

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">2 LABORATORINIS</string>
+    <string name="calculate">Skaičiuoti</string>
+    <string name="writeIn">Įrašykite tekstą</string>
 </resources>
