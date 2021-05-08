@@ -20,17 +20,17 @@ public class AddNoteActivity extends AppCompatActivity {
     }
 
     public void onAddNoteClick(View view) {
-        EditText txtNote = findViewById(R.id.text);
+        EditText note = findViewById(R.id.text);
 
         SharedPreferences sharePref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        SharedPreferences.Editor spEd = sharePref.edit();
-        Set<String> oldSet = sharePref.getStringSet("notes", new HashSet<String>());
-        Set<String> newStrSet = new HashSet<String>();
-        newStrSet.add(txtNote.getText().toString());
-        newStrSet.addAll(oldSet);
+        SharedPreferences.Editor prefEdit = sharePref.edit();
+        Set<String> allNotes = sharePref.getStringSet("notesList", new HashSet<String>());
+        Set<String> newNotes = new HashSet<String>();
+        newNotes.add(note.getText().toString());
+        newNotes.addAll(allNotes);
 
-        spEd.putStringSet("notes", newStrSet);
-        spEd.apply();
+        prefEdit.putStringSet("notesList", newNotes);
+        prefEdit.apply();
 
         finish();
     }

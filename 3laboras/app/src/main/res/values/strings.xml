@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">3laboras</string>
+    <string name="addMenu">Pridėti</string>
+    <string name="deleteMenu">Ištrinti</string>
+    <string name="createNote">Pridėti įrašą</string>
+    <string name="delNote">Pašalinti įrašą</string>
+    <string name="hintNote">Įrašykite</string>
 </resources>

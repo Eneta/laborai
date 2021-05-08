@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         this.notes = findViewById(R.id.list);
         SharedPreferences sharePref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        this.notesList = new ArrayList<String>(sharePref.getStringSet("notes", new HashSet<String>()));
+        this.notesList = new ArrayList<String>(sharePref.getStringSet("notesList", new HashSet<String>()));
         this.listAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, notesList);
         this.notes.setAdapter(this.listAdapter);
     }
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onRestart();
         SharedPreferences sharePref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         notesList.clear();
-        this.notesList.addAll((sharePref.getStringSet("notes", new HashSet<String>())));
+        this.notesList.addAll((sharePref.getStringSet("notesList", new HashSet<String>())));
         listAdapter.notifyDataSetChanged();
     }
 
@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(addActivityIntent);
                 return true;
             case R.id.deleteNote:
+                Intent deleteActivityIntent = new Intent(getApplicationContext(), com.example.a3laboras.DeleteNoteActivity.class);
+                startActivity(deleteActivityIntent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
